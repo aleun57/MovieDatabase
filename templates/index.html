@@ -1,0 +1,52 @@
+<!DOCTYPE=html>
+<html>
+<head>
+<title>MovieTheatre</title> <br/>
+<style>
+body{
+	background-color:rgb(199, 200, 204)
+}
+hr { 
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 3px;
+	background-color: black;
+	border-color: black;
+	
+} 
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+
+tr:nth-child(odd){background-color: rgb(169, 170, 173)}
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+</style>
+</head>
+<body>
+<h1>Welcome to aleun57 & jlam323's movie theatre!</h1><br/><br/>
+<h3>Select the kind of user you are:</h3><br/>
+<a href="/customerIndex">Customer</a><br/><br/>
+<a href="/employeeIndex">Employee</a><br/><br>
+<h4> Try the Injection here (on Movies Table) </h4>
+<form action = "/injectionTime" method = "post"> 
+	Enter into the Textfield: 1 or 1=1 <br> <br>
+	View All Movies made in a particular Year: <input type="text" name="injectionMovieYear"><br>
+	<input type="submit" value="Search Movies">
+</form>
+</body>

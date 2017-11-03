@@ -1,0 +1,119 @@
+<!DOCTYPE=html>
+<html>
+<head>
+<title>MovieTheatre</title> <br/>
+<style>
+body{
+	background-color:rgb(199, 200, 204)
+}
+hr { 
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 3px;
+	background-color: black;
+	border-color: black;
+	
+} 
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+
+tr:nth-child(odd){background-color: rgb(169, 170, 173)}
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+input {
+	display: inline-block;
+	float: left;
+}
+select {
+	display: inline-block;
+	float: left;
+}
+label {
+	display: inline-block;
+	float: left;
+	clear: left;
+	text-align: left;
+	width: 150px;
+}
+
+</style>	
+</head>
+<body>
+<h1>Scroll down for various options</h1>
+<a href = "/"> Go Back to Home Page </a> <br><br>
+<h3> Search for Showings </h3>
+<form action = "/searchShowing" method = "post"> Input the following information to search all Showings <br><br>	
+	<label>Select Genre: </label><select name = "selectGenre"> 
+	{% for genre in genres %}
+		<option value = {{genre.0}}>{{genre.0}}</option>
+	{% endfor %}
+	</select> <br/>
+	
+	<label>Select Start date:</label>
+	<select name = "selectStartDate">
+	{% for date in dates %}
+		<option value = {{date.0}}>{{date.0}}</option>
+	{% endfor %}
+	</select> <br/>
+	
+	<label>Select End date:</label>
+	<select name = "selectEndDate">
+	{% for date in dates %}
+		<option value = {{date.0}}>{{date.0}}</option>
+	{% endfor %}
+	</select> <br>
+	<label>Only show showings with seats still available? </label>
+	<input type="checkbox" name="openSeats" value=""><br>
+	<label>Movie Title: </label><br> <input type="text" name="movieTitle"> <br>
+	<input type="submit" value="Search">
+</form> <br>
+
+
+<h3> Buy a Ticket to a Showing </h3>
+<form action = "/buyTicket" method = "post"> Input the following information to buy a ticket <br><br>
+	<label>First name: </label><input type="text" name="firstName"><br>
+	<label>Last name: </label><input type="text" name="lastName"><br>
+	<label>Select the Showing ID: </label><input type="text" name="showingID"> <br><br>
+	<input type="submit" value="Buy Ticket"><br><br>
+</form> <br>
+
+<h3> Rate a Showing </h3> 
+<form action = "/rateShowing" method = "post"> Input the following information to give a rating <br><br>
+	<label>First name: </label><input type="text" name="firstName"><br>
+	<label>Last name: </label><input type="text" name="lastName"><br>
+	<label>Select the Showing ID: </label><input type="text" name="showingID"> <br>
+	<label>Give Rating (0-5): </label><input type="text" name="rating"> <br><br>
+	<input type="submit" value="Submit Rating"><br><br>
+</form> <br>
+
+<h3> See all Showings you have attended </h3>
+<form action = "/allShowing" method = "post"> Input your name into the following boxes: <br><br>
+	<label>First name: </label><input type="text" name="firstName"><br>
+	<label>Last name: </label><input type="text" name="lastName"><br><br>
+	<input type="submit" value="Find User's Showings"><br><br>
+</form> <br>
+
+<h3> See your User Profile </h3> 
+<form action = "/profile" method = "post"> Input your name into the following boxes: <br><br>
+	<label>First name: </label><input type="text" name="firstName"><br>
+	<label>Last name: </label><input type="text" name="lastName"><br><br>
+	<input type="submit" value="Find User Profile"><br><br>
+</form> <br>
+</body>
